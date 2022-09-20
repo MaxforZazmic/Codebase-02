@@ -48,28 +48,28 @@ api. post ("/failure", function (req, res) {
 // 2. find unique audience id
 
 
-const url = "https://us11.api.mailchimp.com/3.0/lists/dc17d5e518";
-const options =  {
-method: "POST",
-auth: "max:6bd66e9acb70b24d950c5dae8f7416c7-us11",
-};
-
-const requests = https.request (url, options, function (response) {
-
-if (response.statusCode === 200) {
-  res.sendFile (__dirname + "/success.html");
-}else {
-  res.sendFile (__dirname + "/failure.html");
-};
-
-
-response.on ("data", function (data) {
-  console.log(JSON.parse(data));
-});
-});
-
-requests.write (jsonData);
-requests.write (end);
+// const url = "https://us11.api.mailchimp.com/3.0/lists/dc17d5e518";
+// const options =  {
+// method: "POST",
+// auth: "max:6bd66e9acb70b24d950c5dae8f7416c7-us11",
+// };
+//
+// const requests = https.request (url, options, function (response) {
+//
+// if (response.statusCode === 200) {
+//   res.sendFile (__dirname + "/success.html");
+// }else {
+//   res.sendFile (__dirname + "/failure.html");
+// };
+//
+//
+// response.on ("data", function (data) {
+//   console.log(JSON.parse(data));
+// });
+// });
+//
+// requests.write (jsonData);
+// requests.write (end);
 
 // // 6bd66e9acb70b24d950c5dae8f7416c7-us11
 // // dc17d5e518.
