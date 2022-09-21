@@ -12,6 +12,8 @@ api.get ("/", function(req,res) {
 res.sendFile (__dirname + "/signup.html");
 });
 
+
+
 // you indetify input values by input names. so in HTML inputs always add name="name"  to parse data by name identifier.
 api.post ("/", function (req, res) {
 const name = req.body.Fname;
@@ -34,24 +36,11 @@ members: [
 ]
 };
 
-const jsonData = JSON.stringify(data);  // this is  finished version of data that app will pass to Mailchimp server.
-
-});
-
-api. post ("/failure", function (req, res) {
-  res.redirect ("/");
-});
-
-//                POST THIS DATA TO MAILCHIMP API
-
-// 1. generate API key from the mailchimp user account
-// 2. find unique audience id
-
 
 const url = "https://us11.api.mailchimp.com/3.0/lists/dc17d5e518";
 const options =  {
 method: "POST",
-auth: "max:6bd66e9acb70b24d950c5dae8f7416c7-us11",
+auth: "max:70f78368e2848744a175e8751506ac24-us11",
 };
 
 const requests = https.request (url, options, function (response) {
@@ -68,8 +57,17 @@ response.on ("data", function (data) {
 });
 });
 
+const jsonData = JSON.stringify(data);  // this is  finished version of data that app will pass to Mailchimp server.
+
 requests.write (jsonData);
-requests.write (end);
+requests.end ();
+});
+
+api. post ("/failure", function (req, res) {
+  res.redirect ("/");
+});
+
+//           
 
 // // 6bd66e9acb70b24d950c5dae8f7416c7-us11
 // // dc17d5e518.
@@ -78,6 +76,6 @@ requests.write (end);
 
 
 
-api.listen (process.env.PORT || 8084, function () {
+api.listen (8084, function () {
   console.log("server started");
 });
