@@ -13,3 +13,4 @@ at this moment it contains the work done by me since the 30th of August:
 - APIs - full-stack app that can calculate your body mas index on back_end and return the response
 - APIs - full-stack app that is integrated to Openweatherapp and can query a weather per city.
 - APIs - full-stack app, specifically newsletter signup page that posts user's personal data to a Mailchimp audience (via their API).
+
