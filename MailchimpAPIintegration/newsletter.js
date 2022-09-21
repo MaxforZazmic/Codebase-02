@@ -40,7 +40,7 @@ members: [
 const url = "https://us11.api.mailchimp.com/3.0/lists/dc17d5e518";
 const options =  {
 method: "POST",
-auth: "max:70f78368e2848744a175e8751506ac24-us11",
+auth: "max:" + // here should be api key inside "", after :,
 };
 
 const requests = https.request (url, options, function (response) {
@@ -67,7 +67,7 @@ api. post ("/failure", function (req, res) {
   res.redirect ("/");
 });
 
-//           
+//
 
 // // 6bd66e9acb70b24d950c5dae8f7416c7-us11
 // // dc17d5e518.
