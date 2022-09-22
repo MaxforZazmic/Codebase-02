@@ -22,6 +22,39 @@ https://sv443.net/jokeapi/v2/#try-it
 // search for api documentations
 
 1. make get request to external server node // you'll get a general info
-2. https get node // after you find perferct match, you can 
+2. https get node // after you find perferct match, you can
 
 */
+
+// Endpoint/API initial steps
+
+npm init // instal npm from terminal
+npm install express // install npm express from terminal
+
+const express = require("express"); // require express
+const https = require("https");
+const bodyParser = require('body-parser');
+
+const app = express (); // start using express
+app.use (bodyParser.urlencoded({extended: true})); // start using bodyparser
+
+
+app.get ("/", function (request, response) {
+  response.sendFile (__dirname + "/index.html");
+});
+
+app. post ("/" function (req, res) {
+  console.log(req.body);
+});
+
+var weight  = (req.body.weight)
+var height = (req.body.height);
+
+var bmi = weight/(height*height);
+
+res.send  ("your body mas index is " + bmi);
+
+
+app. listen (8080, function () {
+  console.log("app server has started!");
+});
