@@ -2,6 +2,9 @@ const express = require ("express");
 const https = require("https");
 const bodyParser = require('body-parser');
 const request = require ("request");
+require ("dotenv").config ();
+
+console.log(process.env);
 
 const api = express(); // start using express
 api.use (bodyParser.urlencoded({extended: true}));
@@ -11,7 +14,6 @@ api.use (express.static("public"));
 api.get ("/", function(req,res) {
 res.sendFile (__dirname + "/signup.html");
 });
-
 
 
 // you indetify input values by input names. so in HTML inputs always add name="name"  to parse data by name identifier.
@@ -36,11 +38,11 @@ members: [
 ]
 };
 
-
+const API_KEY = process.env.API_Key;
 const url = "https://us11.api.mailchimp.com/3.0/lists/dc17d5e518";
 const options =  {
 method: "POST",
-auth: "max:" + // here should be api key inside "", after :,
+auth: "max:e83af2b887c47f3a914fa017702c68fb-us11" // here should be api key inside "", after :,
 };
 
 const requests = https.request (url, options, function (response) {
