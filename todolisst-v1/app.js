@@ -1,10 +1,13 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 
+
 const app = express();
 var items= [];
+let workItems= [];
 app.set('view engine', 'ejs');  // start using ejs view engine
 app.use(bodyParser.urlencoded({extended: true}));
+app.use (express.static ("public"));
 
 
 // START GET dayofaWeek API
@@ -21,6 +24,8 @@ res.render ("list", {dayofaWeek: today, newListItems: items}); // this code rend
 // it's crucial to have views folder and list.ejs file. otherwise it won't see.
 // and in this list.ejs file inside <%= dayofaWeek %> passes a variable day value.
 });
+// FINISH  GET dayofaWeek API
+
 
 
 // START post method API
@@ -36,7 +41,6 @@ app. post ("/", function (req,res) {
 // FINISH post method API
 
 
-// FINISH  GET dayofaWeek API
 
 
 
