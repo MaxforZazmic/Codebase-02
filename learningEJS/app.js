@@ -20,7 +20,7 @@ Lname: "Ricciardo"
 }
 
 app.get ("/", function (req,res) {
-  res.render ("pages/index", {  //express and EJS directly looks into views folder in root directory. so no need to contain views/pages/index into path.
+  res.render ("pages/index", {  // res.render() will look in a views folder for the view. So you only have to define pages/index since the full path is views/pages/index.
     user:user
   })
 }) ;
