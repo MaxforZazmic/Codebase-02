@@ -18,11 +18,12 @@ var options = {
   day: "numeric",
   month: "long"
 };
-
 var today = today.toLocaleDateString("en-US", options);
-res.render ("list", {dayofaWeek: today, newListItems: items}); // this code renders list.ejs html file. looks at views folder to a list.ejs file.
-// it's crucial to have views folder and list.ejs file. otherwise it won't see.
-// and in this list.ejs file inside <%= dayofaWeek %> passes a variable day value.
+
+res.render ("list", {
+dayofaWeek: today,
+newListItems: items
+});
 });
 // FINISH  GET dayofaWeek API
 
