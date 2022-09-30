@@ -1,0 +1,16 @@
+In Mongo DB you got:
+1. Database > collection(like users, products) > documents (piece of data about specific user, product)
+2. every entry has it's unique id to identify a specific piece of data.
+
+for example:
+db.products.insertOne({_id:1, productName:"Pencil",  price: 1.2})
+
+//  this way you insert entry with ID:1 to a products collection. you can either insert additional data to this entry using it's id, or create additional entries.
+
+db.products.find ({name: "Pencil"})    // this will query the documents that contains name:"Pencil"
+
+
+db.products.updateOne( {_id:1}, {$set: {stock: 23}})   // in document where Id:1 you record new properties.
+
+
+s
