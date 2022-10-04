@@ -1,16 +1,47 @@
-In Mongo DB you got:
-1. Database > collection(like users, products) > documents (piece of data about specific user, product)
-2. every entry has it's unique id to identify a specific piece of data.
-
-for example:
-db.products.insertOne({_id:1, productName:"Pencil",  price: 1.2})
-
-//  this way you insert entry with ID:1 to a products collection. you can either insert additional data to this entry using it's id, or create additional entries.
-
-db.products.find ({name: "Pencil"})    // this will query the documents that contains name:"Pencil"
+brew services start mongodb-community - command to start mongo
+brew services restart mongodb-community - restart
+brew services stop mongodb-community - restart
+mongosh - start using mongo
 
 
-db.products.updateOne( {_id:1}, {$set: {stock: 23}})   // in document where Id:1 you record new properties.
+mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.6.0
+https://www.mongodb.com/docs/manual/crud/ - crud operations
 
 
-s
+show dbs // just shows list of db's
+use db_name // get into db, or CREATE a db
+db - shows which db you're in
+
+1. use db_name // create a db
+2.  db.collection_name.insertOne() // you create collection into db and insert a data
+e.g: db.products.insertOne ({
+_id:1,
+Name:"Pencil"
+price: 1.5
+})
+3. show collections // will show you list of collections inside db
+4. db.collection_name.find()  // shows all documents(data) inside collection
+5. db.collection_name.find ({_id:1}) // you query specific data from collection
+db.collection_name.find({price: {$gt: 1}}) // query's data, that's price is greater than 1$.
+db.collection_name.find ({_id:1}, {name:1})  // query's data where id:1 but only value of name.
+6.db.collection_name.updateOne ({_id:1},{$set: {stock:21}}) // where id:1, we added new field - stock. $set operator sets new field
+7. db.collection_name.deleteOne ({_id:1})  // deletes entire record where id:1
+8. db.products.insertOne ({
+_id: 1,
+name: "Pencil",
+price: 0.80,
+stock: 41,
+reviews: [
+{
+authorName: "Max",
+rating: 5,
+review: "best Pencil ever"
+},
+{
+authorName: "Nico",
+rating:4,
+review: "decent Pencil"
+}
+]
+})     // inserting embedded documents
+9.
