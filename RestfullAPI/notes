@@ -1,0 +1,9 @@
+1. Restful API is a way of building APIs
+2. HTTP request verbs:
+Get - get is basically same as read
+Post -
+Put - update entirely, replace existing
+Patch  - update piece of data
+Delete  -
+
+to make RestfulAPI you need to build endpoints for all these verbs
