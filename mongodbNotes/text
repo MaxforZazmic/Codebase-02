@@ -1,6 +1,6 @@
 brew services start mongodb-community - command to start mongo
 brew services restart mongodb-community - restart
-brew services stop mongodb-community - restart
+brew services stop mongodb-community - stop
 mongosh - start using mongo
 
 
