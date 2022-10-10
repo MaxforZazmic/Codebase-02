@@ -17,7 +17,7 @@ review: String
 //create a model - this creates collection
 const Fruit = mongoose.model("Fruit", fruitSchema); // "Fruit" is a collection name (in mongo it will shown as fruits, so with lower case + s) fruitSchema is a schema this collection should use
 
-// create a document that will be inserted to // DEBUG:
+// create a document that will be inserted to
 const fruit = new Fruit ({       // this (fruit )is a first document in Fruit collection. Fruit is comming from model, where we specified name of a collection.
 name: "Apple",
 rating: 7,
