@@ -1,8 +1,10 @@
 //require
+require('dotenv').config()
 const express = require ("express");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const ejs = require ("ejs");
+const encrypt = require ("mongoose-encryption");
 
 //use
 const app = express();
@@ -10,17 +12,23 @@ app.use (bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
+console.log(process.env.SECRET);
+
 //connect to db
 mongoose.connect ("mongodb://localhost:27017/userDB",{ useNewUrlParser: true});
 
 //create a schema
-const userSchema = {
+const userSchema = new mongoose.Schema ({
   email: String,
   password: String
-};
+});
+
+// encryption
+userSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ["password"] });
 
 //create a model
 const User = new mongoose.model("User", userSchema);
+
 
 // render pages (except secrets page, as it's rendered only after client gets registered.)
 app.get ("/", function(req,res) {
