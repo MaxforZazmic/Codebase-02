@@ -1,18 +1,17 @@
+//mongoose-encryption, md5, bcrypt.
 //require
 require('dotenv').config()
 const express = require ("express");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const ejs = require ("ejs");
-const encrypt = require ("mongoose-encryption");
+const md5 = require ("md5");
 
 //use
 const app = express();
 app.use (bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static("public"));
-
-console.log(process.env.SECRET);
 
 //connect to db
 mongoose.connect ("mongodb://localhost:27017/userDB",{ useNewUrlParser: true});
@@ -23,14 +22,10 @@ const userSchema = new mongoose.Schema ({
   password: String
 });
 
-// encryption
-userSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ["password"] });
-
 //create a model
 const User = new mongoose.model("User", userSchema);
 
-
-// render pages (except secrets page, as it's rendered only after client gets registered.)
+// render pages
 app.get ("/", function(req,res) {
   res.render("home");
 });
@@ -43,41 +38,43 @@ app.get ("/register", function(req,res) {
   res.render("register");
 });
 
-//resgister handler: save user credentials into User collection and show them secrets page
+//resgister handler: save user credentials into User collection and only after it show them secrets page
 app.post ("/register", function(req,res){
 
-const newUser = new User ({
-email: req.body.username,
-password: req.body.password
-});
+    const newUser = new User ({
+    email: req.body.username,
+    password: md5(req.body.password)
+    });
 
-newUser.save(function (err) {
-if (err) {
-  console.log(err);
-}else {
-  res.render("secrets");  // we render secrets page only after user gets registered
-}
-});
+    newUser.save(function (err) {
+    if (err) {
+      console.log(err);
+    }else {
+      res.render("secrets");
+    }
+    });
+
 });
 
 // login page handler
 app.post ("/login", function(req,res) {
 
 const email = req.body.username;
-const password = req.body.password;
+const password = md5(req.body.password);
 
 User.findOne ({email: email}, function (err,foundUser){
   if (err) {
     console.log(err);
   }else {
     if (foundUser) {
-      if(foundUser.password === password) {
+  if (foundUser.password === password) {
         res.render ("secrets");
       }
     }
-  }
+    }
+  });
 });
-});
+
 
 
 
