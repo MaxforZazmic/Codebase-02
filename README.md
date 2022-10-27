@@ -14,3 +14,6 @@ at this moment it contains the work done by me since the 30th of August:
 - APIs -  Work Management app that uses EJS.
 - MongoDB&Mongoose related code, that does different operations on mongo database.
 - Restful service that uses MongoDB to store data (RestfulAPI folder)
+- Node app in "Authentication" folder for practising authentication with hashing.
+- Node app in "Kenkinsproject" folder for Jenkins course practises
+- react app in "keeper-app" folder for React learning purposes. 
