@@ -1,0 +1,13 @@
+steps to create React Node application 
+
+1. create Server folder 
+ - in the server folder, run npm init 
+ - run npm i express, npm i nodemon
+ - this way you'll set up a server 
+ - in index.js or whatever is a main root file, write an api and listen it to a specific port 
+
+ this is how you build a back-end business logic
+2. create Client folder 
+- go in client folder and run "npx create-react-app appname" to creeate a react app 
+- go to Client/appname directory and run " npm start"  to start react app 
+- then use fetch method to build connection between react and server and reqeust data 
