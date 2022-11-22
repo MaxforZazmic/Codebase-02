@@ -110,6 +110,9 @@ return remainingmonths;
 }
 monthremaining();
 
+// 2 ways to state functions
+
+//1:
 function daysremaining() {
 var age=prompt ("How old are you?")
 var daysremaining=(90-age) * 365;
@@ -117,6 +120,23 @@ return daysremaining;
 
 }
 daysremaining();
+
+//2:
+daysremaining() => {
+var age=prompt ("How old are you?")
+var daysremaining=(90-age) * 365;
+return daysremaining;
+
+}
+daysremaining();
+
+ function div (){
+  return ( 
+    <div>
+<h1> Hello World! </h1>
+   </div>
+ );
+};
 
 /* or you can write same function this way:*/
 function timeremaining(age) {
