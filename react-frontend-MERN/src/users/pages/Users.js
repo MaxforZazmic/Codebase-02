@@ -8,7 +8,7 @@ const USERS = [
     {
         id: "s1", 
         name:"Max Arabuli", 
-        img: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg", 
+        image: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fA%3D%3D&w=1000&q=80", 
         places:3
     }
 ];
