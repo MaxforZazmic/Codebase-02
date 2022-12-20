@@ -20,7 +20,7 @@ const App = () => {
 </Route>
 
 <Route path="/places/new" exact>  
-<NewPlace /> 
+<NewPlace />
 </Route>
 
 <Redirect to="/" />
