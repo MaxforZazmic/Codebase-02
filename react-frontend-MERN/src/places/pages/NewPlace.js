@@ -7,7 +7,7 @@ const NewPlace = () => {
 
 return (
 <form className='place-form'>
- <input element="input" type="text" label="Title" />
+ <input element="input" type="text" label="Title" validators={[]}  />
 </form>
 );
 };
