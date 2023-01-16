@@ -8,11 +8,11 @@ const bodyParser = require ("body-parser");
 const app = express ();
 app.use (bodyParser.urlencoded({extended: true}));
 
-app.get ("/", function(req, res) {
+app.get ("/api", (req, res) => {
+res.json ({"users": ["userOne", "userTwo", "userThree"]})
+});
 
-})
 
-
-app.listen(9090, function () {
+app.listen (9090, () => {
     console.log("port 9090 has started");
 });
